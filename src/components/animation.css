@@ -1,0 +1,172 @@
+
+/* Base style for list items */
+.social li {
+    transition: transform 0.3s ease-in-out;
+    /* Smooth transition */
+}
+
+/* Hover effect to move the item upwards */
+.social li:hover {
+    transform: translateY(-10px);
+    /* Moves the item 10px upwards */
+    transition: transform 0.3s ease-in-out;
+    /* Smooth transition */
+}
+
+/* Optional: Add a slight shadow on hover to enhance the effect */
+.social li:hover {
+    transform: translateY(-10px);
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    /* Subtle shadow */
+}
+
+
+
+
+
+
+/* Keyframe to animate the circle movement */
+@keyframes move {
+    0% {
+        transform: translate(0, 0);
+    }
+
+    100% {
+        /* transform: translate(calc(100vw - 50px), calc(100vh - 50px)); */
+        transform: translate(100px, 150px);
+    }
+}
+
+/* src/pages/Home.css */
+/* Circles animation container */
+.circles-container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    z-index: 1;
+    /* Ensure it stays behind the content */
+    overflow: hidden;
+    /* Prevent overflow */
+}
+
+/* Base circle styling */
+.circle {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.8;
+    animation: moveToCenter 5s ease-in-out infinite alternate;
+    /* Move circles towards center infinitely */
+    box-shadow: 0 4px 20px #ff6b6b;
+    display: flex;
+        /* Use flexbox to center the image */
+        justify-content: center;
+        /* Center horizontally */
+        align-items: center;
+}
+
+/* Top-left circle */
+.circle:nth-child(1) {
+    width: 40px;
+    height: 40px;
+    /* background-color: #ff6b6b; */
+    top: 5%;
+    left: 0%;
+    animation: moveToCenterTopLeft 5s ease-in-out infinite alternate;
+    /* Infinite animation */
+}
+
+/* Top-right circle */
+.circle:nth-child(2) {
+    width: 40px;
+    height: 40px;
+    /* background-color: #ffcc00; */
+    top: 5%;
+    right: 0%;
+    animation: moveToCenterTopRight 5s ease-in-out infinite alternate;
+    /* Infinite animation */
+}
+
+/* Bottom-left circle */
+.circle:nth-child(3) {
+    width: 40px;
+    height: 40px;
+    /* background-color: #4dd599; */
+    bottom: 5%;
+    left: 0%;
+    animation: moveToCenterBottomLeft 5s ease-in-out infinite alternate;
+    /* Infinite animation */
+}
+
+/* Bottom-right circle */
+.circle:nth-child(4) {
+    width: 40px;
+    height: 40px;
+    /* background-color: #3498db; */
+    bottom: 5%;
+    right: 0%;
+    animation: moveToCenterBottomRight 5s ease-in-out infinite alternate;
+    /* Infinite animation */
+}
+
+@media (min-width: 768px) {
+    .circle:nth-child(2) {
+        right: 20%;
+        /* Move top-right circle 20% from the right */
+    }
+
+    .circle:nth-child(4) {
+        right: 20%;
+        /* Move bottom-right circle 20% from the right */
+    }
+}
+
+/* Keyframes to animate the circles towards the center */
+@keyframes moveToCenterTopLeft {
+    0% {
+        transform: translate(0, 0);
+        /* Start at top-left */
+    }
+
+    100% {
+        transform: translate(calc(50vw - 50%), calc(50vh - 50%));
+        /* Move to center */
+    }
+}
+
+@keyframes moveToCenterTopRight {
+    0% {
+        transform: translate(0, 0);
+        /* Start at top-right */
+    }
+
+    100% {
+        transform: translate(calc(-50vw + 50%), calc(50vh - 50%));
+        /* Move to center */
+    }
+}
+
+@keyframes moveToCenterBottomLeft {
+    0% {
+        transform: translate(0, 0);
+        /* Start at bottom-left */
+    }
+
+    100% {
+        transform: translate(calc(50vw - 50%), calc(-50vh + 50%));
+        /* Move to center */
+    }
+}
+
+@keyframes moveToCenterBottomRight {
+    0% {
+        transform: translate(0, 0);
+        /* Start at bottom-right */
+    }
+
+    100% {
+        transform: translate(calc(-50vw + 50%), calc(-50vh + 50%));
+        /* Move to center */
+    }
+}

@@ -1,6 +1,15 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+html {
+  scroll-behavior: smooth;
+}
+
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+  font-family: -apple-system,lato, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
     'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
     sans-serif;
   -webkit-font-smoothing: antialiased;
@@ -10,4 +19,92 @@ body {
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+
+.logo-img {
+  width: 100%;
+  height: auto;
+  transition: filter 0.3s ease-out;
+}
+.logo-img:hover {
+  filter: brightness(150%) drop-shadow(0 0 50px rgb(82, 31, 148));
+}
+
+
+/* Typing Animation */
+@keyframes typing {
+  0% {
+    width: 0;
+  }
+
+  50% {
+    width: 70%;
+  }
+
+  100% {
+    width: 0;
+  }
+}
+
+@keyframes blink {
+  50% {
+    border-color: transparent;
+  }
+}
+
+.typing-effect {
+  display: inline-block;
+  overflow: hidden;
+  /* Ensures text hides beyond the container */
+  white-space: nowrap;
+  /* Prevents text from wrapping */
+  border-right: 1px solid;
+  /* Creates a blinking cursor effect */
+  animation: typing 7s steps(20, end) infinite, blink 0.75s step-end infinite;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+
+/* Animate in */
+.animate-in {
+  opacity: 1;
+  /* Fully visible */
+  transform: translateY(0);
+  /* Final position */
+  transition: opacity 0.5s ease, transform 0.5s ease;
+  /* Smooth transition */
+}
+
+/* Initial state for opacity */
+.opacity-0 {
+  opacity: 0;
+  /* Invisible */
+  transform: translateY(30px);
+  /* Start slightly below */
+}
+
+/* Additional styles for sliding effect */
+.slide-up {
+  animation: slideUp 0.5s forwards;
+  /* Animation for image */
+}
+
+@keyframes slideUp {
+  0% {
+    transform: translateY(30px);
+    /* Start below */
+    opacity: 0;
+    /* Start invisible */
+  }
+
+  100% {
+    transform: translateY(0);
+    /* End at original position */
+    opacity: 1;
+    /* End visible */
+  }
 }
